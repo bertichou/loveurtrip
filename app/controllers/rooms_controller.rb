@@ -52,7 +52,7 @@ private
     def room_params 
         params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room,
         :listing_name, :summary, :address, :is_wifi, :is_tv, :is_pool, :is_closet, :is_shampoo, :is_breakfast,
-        :is_heating, :is_air, :is_kitchen, :is_elevator, :is_essantials, :is_washer, :active)
+        :is_heating, :is_air, :is_kitchen, :is_elevator, :is_essantials, :is_washer, :active, :price)
     
    
  

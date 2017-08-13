@@ -21,6 +21,5 @@ class Room < ActiveRecord::Base
                validates :address, presence: true
  
   
-               validates :price, numericality: { only_integer: true, greater_than: 5 } #seulement des nombres entiers supérieurs à 5 
-  
+               validates :price, numericality: {only_integer: true, greater_than: 5 }  
 end

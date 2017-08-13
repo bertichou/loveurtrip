@@ -1,9 +1,11 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        Devenez Hôte de LoveUrTrip 
+        Devenez Hôte de Loveurtrip 
     </div>
     <div class="panel-body">
         <div class="container">
+        <%= render 'shared/errors' %>
+        
             
             <%= form_for @room do |f| %>
              
@@ -148,7 +150,7 @@
             </div>
                 
             <div class="row">
-                <div class="col-md-4">
+                  <div class="col-md-4">
                 <div class="form-group">
                     <%= f.check_box :active %> Annonce active
                 </div>
