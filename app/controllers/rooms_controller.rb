@@ -4,14 +4,15 @@ class RoomsController < ApplicationController
    before_action :authenticate_user!, except: [:show]
    before_action :require_same_user, only: [:edit, :update]
    
-   def index
+    def index
  
             @rooms = current_user.rooms 
- end
+    end
     
     def new 
    
             @room = current_user.rooms.build
+
             
     def create
            
@@ -24,33 +25,30 @@ class RoomsController < ApplicationController
  
             @room.photos.create(image: i)
  
-       end
-   end
+                end
+    end
             @photos = @room.photos
                 redirect_to edit_room_path(@room), notice:"Votre Annonce a été ajoutée avec succès"
             else
                 render :new 
             end
-        
-    
-    
     end
    
    
     end
     
  
-   def show
+    def show
        
      @photos = @room.photos  
-       
-       
+      
     end
-   def edit
+   
+    def edit
        
      @photos = @room.photos
-       
-       end
+    end
+    
     def update
         if @room.update(room_params)
             if params[:images]
@@ -59,8 +57,8 @@ class RoomsController < ApplicationController
  
             @room.photos.create(image: i)
  
-       end
-   end
+    end
+    end
             @photos = @room.photos
             
             redirect_to edit_room_path(@room), notice:"Modification Enregistée..." 
@@ -68,7 +66,7 @@ class RoomsController < ApplicationController
             render :edit 
         end 
        
-       end
+        end
 private
     def set_room
         @room = Room.find(params[ :id])
