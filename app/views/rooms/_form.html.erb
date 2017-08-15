@@ -16,6 +16,7 @@
                             <%= f.select :home_type, [["Maison","Maison"], ["Appartement","Appartement"],
                             ["Bed & Breakfast", "Bed & Breakfast"], ["Maison d'hôtes", "Maison d'hôtes"]], id: "home_type", 
                             prompt: "A sélectionner...", class: "form-control" %>
+                        
                         </div>
                     </div>
                     
@@ -102,28 +103,28 @@
  
  </div>
                
-     <div id="photos"><%= render 'photos/list' %></div>
+         <div id="photos"><%= render 'photos/list' %></div>
                 
                 
                 
             <div class="row">
                 <div class="col-md-4">
-                    <div class="form-group">
+                     <div class="form-group">
                         <%= f.check_box :is_wifi %> Wifi
-                    </div>
+                </div>
                     
-                    <div class="form-group">
+                      <div class="form-group">
                         <%= f.check_box :is_tv %> Télévision
-                    </div>
+                </div>
                     
                     <div class="form-group">
                         <%= f.check_box :is_closet %> Penderie/Commode
-                    </div>
+                </div>
                     
                     <div class="form-group">
                         <%= f.check_box :is_shampoo %> Shampoing
-                    </div>
                 </div>
+            </div>
                 
                 <div class="col-md-4">
                     <div class="form-group">

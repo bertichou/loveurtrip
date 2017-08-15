@@ -25,7 +25,7 @@ class RoomsController < ApplicationController
  
             @room.photos.create(image: i)
  
-                end
+    end
     end
             @photos = @room.photos
                 redirect_to edit_room_path(@room), notice:"Votre Annonce a été ajoutée avec succès"
@@ -68,6 +68,7 @@ class RoomsController < ApplicationController
        
         end
 private
+
     def set_room
         @room = Room.find(params[ :id])
     end
