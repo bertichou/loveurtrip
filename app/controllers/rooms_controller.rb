@@ -52,16 +52,14 @@ class RoomsController < ApplicationController
     def update
         if @room.update(room_params)
             if params[:images]
+               params[:images].each do |i|
+                 @room.photos.create(image: i)
  
-       params[:images].each do |i|
- 
-            @room.photos.create(image: i)
- 
+          end
     end
-    end
-            @photos = @room.photos
-            
-            redirect_to edit_room_path(@room), notice:"Modification Enregistée..." 
+    @photos = @room.photos
+    redirect_to edit_room_path(@room), notice:"Modification Enregistée..." 
+       
         else
             render :edit 
         end 
@@ -80,12 +78,12 @@ private
     end
     
     def require_same_user 
-        if current_user != @room.user_id
+        if current_user.id != @room.user_id
             flash[:danger] = "Vous n'avez pas le droit de modifier cette page"
             
             redirect_to root_path 
         end
     end
-    end
+end
     
 
