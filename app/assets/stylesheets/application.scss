@@ -293,6 +293,7 @@ select {
  
  appearance: none;
  
+ 
  -moz-appearance: none; /* Firefox */
  
  -webkit-appearance: none; /* Safari and Chrome */
@@ -371,4 +372,12 @@ input[type="checkbox"]:checked:before {
  
           width: 100%;
  
+ }
+ 
+ .equipments li {
+        margin-bottom: 10px;
+        list-style-type: none;
+}
+ .text-line-through {
+      text-decoration: line-through
  }
