@@ -10,7 +10,15 @@ Rails.application.routes.draw do
   root'pages#home'
   
   resources :users, only: [:show]
-  resources :rooms
+  resources :rooms do
+    resources :reservations, only: [:create]
+  end 
+  
+  
+  
+  
+  resources :photos
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -52,7 +60,7 @@ Rails.application.routes.draw do
   #     post 'toggle'
   #   end
   #   resources :posts, concerns: :toggleable
- resources :photos
+ 
   # Example resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
