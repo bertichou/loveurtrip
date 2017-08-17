@@ -22,12 +22,18 @@ before_action :authenticate_user!
         render json: output
     end
  
-def create
+    def create
  
       @reservation = current_user.reservations.create(reservation_params)       
       redirect_to @reservation.room, notice: "Votre réservation a été acceptée" 
       
-      end 
+    end 
+    
+    def your_trips
+ 
+       @trips = current_user.reservations 
+ 
+    end
 private
 
     def is_conflict(start_date, end_date)
