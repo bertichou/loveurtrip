@@ -34,6 +34,13 @@ before_action :authenticate_user!
        @trips = current_user.reservations 
  
     end
+    
+    def your_reservations
+ 
+      @rooms = current_user.rooms
+ 
+ end
+    
 private
 
     def is_conflict(start_date, end_date)
