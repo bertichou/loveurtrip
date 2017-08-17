@@ -22,6 +22,12 @@ before_action :authenticate_user!
         render json: output
     end
  
+def create
+ 
+      @reservation = current_user.reservations.create(reservation_params)       
+      redirect_to @reservation.room, notice: "Votre réservation a été acceptée" 
+      
+      end 
 private
 
     def is_conflict(start_date, end_date)
@@ -30,18 +36,15 @@ private
         check = room.reservations.where("? < start_date AND end_date < ?", start_date, end_date)
         check.size > 0? true : false
     end
-
+    
  
     def reservation_params         
         params.require(:reservation).permit(:start_date, :end_date, :price, :total, :room_id)     
     end  
 
-def create
- 
-      @reservation = current_user.reservations.create(reservation_params)       
-      redirect_to @reservation.room, notice: "Votre réservation a été acceptée" end
+
  
   
 
      
-end
+end 

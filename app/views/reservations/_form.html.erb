@@ -56,9 +56,40 @@
                              
                          </script>
                          
-                         
  
                    </tr>
+                   
+                   
+                   <tr>
+ 
+                         <td>Taxe de séjour(s)</td>
+ 
+                         <td><span id="taxe_sum"></span>€</td>
+                         
+                         <script>
+                             
+                             var taxe=1
+                             
+                         </script>
+                         
+                   </tr>
+                   
+                   <tr>
+ 
+                         <td>Remises</td>
+ 
+                         <td><span id="remise_sum"></span>€</td>
+                         
+                         <script>
+                             
+                             var remise= .5 
+                             
+                             
+                         </script>
+                         
+                   </tr>
+                   
+                   
  
  
                     <tr>
@@ -129,6 +160,8 @@
                         var diff = (end_date - start_date)/1000/60/60/24;
                         var days = Math.round(diff);
                         var commission= 0.1
+                        var taxe= 1
+                        var remise= 0.5 
                         
                         
                         var input = {
@@ -152,18 +185,32 @@
                                         $('#preview').show();
                                         $('#btn_book').attr('disabled', false);
                                         
+                                                       
+
+                                        
                                        
-                                       var commission = days * <%= @room.price %>*0.1
+                                       var commission = days * <%= @room.price %> * 0.15
                                         $('#reservation_days').text(days);
                                         $('#commission_sum').text(commission);
                                         $('#reservation_total').val(total)
+                                        
+                                        var taxe=1
+                                        $('#reservation_days').text(days);
+                                        $('#taxe_sum').text(taxe);
+                                        $('#reservation_total').val(total)
+                                        
+                                        
+                                       var remise= days * <%= @room.price %> * 0.15 * 0.5
+                                        $('#reservation_days').text(days);
+                                        $('#remise_sum').text(remise);
+                                        $('#reservation_total').val(total)
                                        
                                        
-                                       
-                                        var total = days * <%= @room.price %> + commission
+                                        var total = days * <%= @room.price %> + commission + taxe -remise
                                         $('#reservation_days').text(days);
                                         $('#reservation_sum').text(total);
                                         $('#reservation_total').val(total);
+                                    
                                     }
                                 
                                 }
@@ -187,7 +234,9 @@
                         var end_date = $(this).datepicker('getDate');
                         var diff = (end_date - start_date)/1000/60/60/24;
                         var days = Math.round(diff);
-                        var commission=0.1
+                        var commission=0.15
+                        var taxe=1
+                        var remise=0.1
                         
                         
                         var input = {
@@ -211,12 +260,23 @@
                                         $('#preview').show();
                                         $('#btn_book').attr('disabled', false);
                                         
-                                        var commission = days * <%= @room.price %>*0.1
+                                        var commission = days * <%= @room.price %> * 0.15
                                         $('#reservation_days').text(days);
                                         $('#commission_sum').text(commission);
                                         $('#reservation_total').val(total)
                                         
-                                        var total = days * <%= @room.price %> + commission
+                                        var taxe= 1
+                                        $('#reservation_days').text(days);
+                                        $('#taxe_sum').text(taxe);
+                                        $('#reservation_total').val(total)
+                                        
+                                        var remise= days * <%= @room.price %> * 0.15 * 0.5
+                                        $('#reservation_days').text(days);
+                                        $('#remise_sum').text(remise);
+                                        $('#reservation_total').val(total)
+                                        
+                                        
+                                        var total = days * <%= @room.price %> + commission + taxe - remise
                                         $('#reservation_days').text(days);
                                         $('#reservation_sum').text(total);
                                         $('#reservation_total').val(total);
