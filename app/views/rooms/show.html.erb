@@ -147,11 +147,11 @@
         
         <!-- Reviews -->
  
- <div class="row">
+        <div class="row">
  
       <div class="col-md-12">
  
-            <h3> Commentaires <%= @room.average_rating %> (<%= @reviews.count %>)</h3>
+            <h3> Commentaires <span id="average_rating"></span> (<%= @reviews.count %>)</h3>
  
             <div class="container">
  
@@ -172,6 +172,7 @@
         </div>
  
  </div>
+        <br>
 
 
         <!-- Google maps -->
@@ -229,3 +230,12 @@
  
     </div>
 </div>
+
+
+    <script>
+            $('#average_rating').raty({
+                path: '/assets',
+                readOnly: true,
+                score: <%= @room.average_rating %>
+            });
+    </script>

@@ -12,11 +12,11 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :rooms, path: 'annonces' do
   resources :reservations, only: [:create]
-  resources :rooms do
+  resources :photos
   resources :reviews, only: [:create, :destroy]
   end
-  end
   resources :photos
+  
 get '/preload' => 'reservations#preload'
 get '/preview' => 'reservations#preview'
 
