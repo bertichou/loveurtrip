@@ -11,11 +11,12 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show]
   resources :rooms, path: 'annonces' do
- 
-            resources :reservations, only: [:create]
- 
-   end
-  
+  resources :reservations, only: [:create]
+  resources :rooms do
+  resources :reviews, only: [:create, :destroy]
+  end
+  end
+  resources :photos
 get '/preload' => 'reservations#preload'
 get '/preview' => 'reservations#preview'
 
@@ -23,7 +24,7 @@ get '/your_trips' => 'reservations#your_trips', path: 'mes_voyages'
 get '/your_reservations' => 'reservations#your_reservations', path: 'mes_reservations'
   
   
-  resources :photos
+  
   
 
   # Example of regular route:
