@@ -41,12 +41,15 @@ class RoomsController < ApplicationController
     def show
        
      @photos = @room.photos  
-     @reviews = @room.reviews
+     
+     
  
 if current_user
  
       @booked = Reservation.where("room_id = ? AND user_id = ?", @room.id, current_user.id).present? 
- 
+      
+      @reviews = @room.reviews
+      
       @hasReview = @reviews.find_by(user_id: current_user.id)
  
 end
