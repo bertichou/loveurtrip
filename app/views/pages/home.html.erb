@@ -54,7 +54,7 @@
                     'Septembre','Octobre','Novembre','Décembre'],
                     dayNamesMin: ['D','L','M','M','J','V','S'],
                     minDate: 0,
-                    maxDate: '6m',
+                    maxDate: '24m',
                     onSelect: function(selected) {
                         var newdate = new Date($("#start_date").datepicker("getDate"));
                         newdate.setDate(newdate.getDate() + 1);
@@ -68,7 +68,7 @@
                     'Septembre','Octobre','Novembre','Décembre'],
                     dayNamesMin: ['D','L','M','M','J','V','S'],
                     minDate: 0,
-                    maxDate: '6m',
+                    maxDate: '24m',
                     onSelect: function(selected) {
                         $('#start_date').datepicker("option", "maxDate", selected);
                     }
