@@ -1,8 +1,36 @@
 <div id="wrapper">
     <div id="sidebar">
         <div id="widget">
-                
+                <script>
+                  function initMap() {
+                    <% if @arrRooms.length > 0 %>
+                        var uluru = {lat: <%= @arrRooms[0].latitude %>, lng: <%= @arrRooms[0].longitude %>};
+                        var map = new google.maps.Map(document.getElementById('widget'), {
+                          zoom: 13,
+                          center: uluru
+                        });
+                    <% else %>
+                        var uluru = {lat: 48.866667, lng: 2.333333};
+                        var map = new google.maps.Map(document.getElementById('widget'), {
+                          zoom: 4,
+                          center: uluru
+                        });
+                    <% end %>
+                    
+                    <% @arrRooms.each do |room| %>
+                    var marker = new google.maps.Marker({
+                      position: {lat: <%= room.latitude %>, lng: <%= room.longitude %>},
+                      map: map,
+                      title: "<%= room.listing_name %>"
+                    });
+                    <% end %>
+                  }
+                </script>
+                <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMbh-GqXAa8RY7hPHJnrRTPIVl9hH5ScE&callback=initMap">
+                </script>
         </div>
+
     </div>
     <div id="article">
         <div class="row">
@@ -156,7 +184,7 @@
                     'Septembre','Octobre','Novembre','Décembre'],
                     dayNamesMin: ['D','L','M','M','J','V','S'],
                     minDate: 0,
-                    maxDate: '6m',
+                    maxDate: '24m',
                     onSelect: function(selected) {
                         var newdate = new Date($("#start_date").datepicker("getDate"));
                         newdate.setDate(newdate.getDate() + 1);
@@ -170,7 +198,7 @@
                     'Septembre','Octobre','Novembre','Décembre'],
                     dayNamesMin: ['D','L','M','M','J','V','S'],
                     minDate: 0,
-                    maxDate: '6m',
+                    maxDate: '24m',
                     onSelect: function(selected) {
                         $('#start_date').datepicker("option", "maxDate", selected);
                     }
