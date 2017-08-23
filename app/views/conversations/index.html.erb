@@ -12,29 +12,28 @@
  
                     <% @conversations.each do |conversation| %>
  
-                    <% other = conversation.sender == current_user ? conversation.recipient : conversation.sender %>
- 
+                    <% other = conversation.sender == current_user ? conversation.recipient : conversation.sender %> 
                     <%= link_to conversation_messages_path(conversation) do %>
  
                           <div class="row conversation">
  
                                <div class="col-md-2">
  
-                                   <%= image_tag avatar_url(other), class: "img-circle avatar-medium" %>
+                                   <%= image_tag avatar_url(other), class: "img-circle avatar-medium" %> 
  
                                </div>
  
                                <div class="col-md-2">
  
-                                    <%= other.fullname %><br>
+                                   <%= other.fullname %><br>
  
-                                   <%= conversation.messages.last.created_at%>                          
+                                   <%= conversation.messages.last.created_at %>                          
  
                                </div>
  
                                <div class="col-md-8">
  
-                                    <%= conversation.messages.last.content %> 
+                                    <%= conversation.messages.last.content %>
  
                                </div>
  
