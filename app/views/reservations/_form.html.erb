@@ -147,7 +147,7 @@
                     'Septembre','Octobre','Novembre','Décembre'],
                     dayNamesMin: ['D','L','M','M','J','V','S'],
                     minDate: 0,
-                    maxDate: '6m',
+                    maxDate: '24m',
                     beforeShowDay: unavailable,
                     onSelect: function(selected) {
                         var newdate = new Date($("#reservation_start_date").datepicker("getDate"));
@@ -225,7 +225,7 @@
                     'Septembre','Octobre','Novembre','Décembre'],
                     dayNamesMin: ['D','L','M','M','J','V','S'],
                     minDate: 0,
-                    maxDate: '6m',
+                    maxDate: '24m',
                     beforeShowDay: unavailable,
                     onSelect: function(selected) {
                         $('#reservation_start_date').datepicker("option", "maxDate", selected);
