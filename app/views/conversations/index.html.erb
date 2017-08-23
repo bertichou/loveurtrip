@@ -27,7 +27,7 @@
  
                                    <%= other.fullname %><br>
  
-                                   <%= conversation.messages.last.created_at %>                          
+                                   <%= timeago_tag conversation.messages.last.created_at, :lang=>:fr %>                          
  
                                </div>
  
