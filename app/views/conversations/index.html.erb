@@ -12,7 +12,7 @@
  
                     <% @conversations.each do |conversation| %>
  
-                    <% other = conversation.sender == current_user ? conversation.recipient : conversation.sender %> #on attribue à la variable other le role de l’autre interlocuteur, si current_user est le sender alors other est le recipient et sinon l’inverse.
+                    <% other = conversation.sender == current_user ? conversation.recipient : conversation.sender %>
  
                     <%= link_to conversation_messages_path(conversation) do %>
  
@@ -20,7 +20,7 @@
  
                                <div class="col-md-2">
  
-                                   <%= image_tag avatar_url(other), class: "img-circle avatar-medium" %> #12
+                                   <%= image_tag avatar_url(other), class: "img-circle avatar-medium" %>
  
                                </div>
  
