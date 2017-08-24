@@ -20,10 +20,15 @@
  
                                 <div class="panel-body">
  
-                                       Email: <%= @user.email %>
-                                       <br>
-                                       <br>
-                                       Tél: <%= @user.phone_number %>
+                                       <% if @user.confirmed_at %>
+ 
+                                           Email confirmé
+ 
+                                       <% else %>
+ 
+                                           Email non confirmé
+ 
+                                <% end %>
  
                                 </div>
  
