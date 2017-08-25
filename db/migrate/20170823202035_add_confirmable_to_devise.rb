@@ -11,13 +11,12 @@ class AddConfirmableToDevise < ActiveRecord::Migration
  
          add_index :users, :confirmation_token, unique: true
  
- end
+end
  
   
  def down
  
         remove_columns :users, :confirmation_token, :confirmed_at, :confirmation_sent_at
  
-  end   
- 
- end
+ end   
+end
