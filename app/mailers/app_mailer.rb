@@ -1,4 +1,5 @@
 class AppMailer < ActionMailer::Base
+
     
 def new_reservation(room, reservation)
  
