@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :omniauthable
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable, 
+  devise :database_authenticatable, :registerable, :omniauthable, 
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
          
          validates :fullname, presence:true, length: {maximum: 65} 
          
@@ -38,11 +38,10 @@ class User < ActiveRecord::Base
  
               u.password = Devise.friendly_token[0,20]
  
-      end
+        end
  
- end
+    end
  
- end
-
-   
+  end
 end
+
