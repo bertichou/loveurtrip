@@ -10,7 +10,7 @@ case Rails.env
  
     when "production"
  
-    config.omniauth :facebook, ENV['141673873095920'], ENV['73ebec7997c32de29e49d0fa829b9900'], scope: "email", info_fields: 'email,name'
+    config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: "email", info_fields: 'email,name'
  
  end  
   
