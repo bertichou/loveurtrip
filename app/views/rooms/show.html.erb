@@ -57,6 +57,54 @@
                         </div>
                     </div>
                 </div>
+                <!-- Description -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>A propos de ce logement</h2>
+                        <p><%= @room.summary %></p>
+                    </div>
+                </div>
+                
+                <br>
+                
+                <!-- Equipements -->
+                <div class="row">
+                    <div class="col-md-2">
+                        <p>Equipements</p>
+                    </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <ul class="equipments">
+                                <li class="<%= 'text-line-through' if !@room.is_wifi %>">Wifi</li>
+                                <li class="<%= 'text-line-through' if !@room.is_tv %>">Télévision</li>
+                                <li class="<%= 'text-line-through' if !@room.is_closet %>">Penderie/Commode</li>
+                                <li class="<%= 'text-line-through' if !@room.is_shampoo %>">Shampoing</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="equipments">
+                                <li class="<%= 'text-line-through' if !@room.is_kitchen %>">Cuisine</li>
+                                <li class="<%= 'text-line-through' if !@room.is_breakfast %>">Petit déjeuner</li>
+                                <li class="<%= 'text-line-through' if !@room.is_heating %>">Chauffage</li>
+                                <li class="<%= 'text-line-through' if !@room.is_air %>">Climatisation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <ul class="equipments">
+                                <li class="<%= 'text-line-through' if !@room.is_pool %>"> Piscine</li>
+                                <li class="<%= 'text-line-through' if !@room.is_closet %>"> Placard</li>
+                                <li class="<%= 'text-line-through' if !@room.is_elevator %>"> Ascenceur</li>
+                                <li class="<%= 'text-line-through' if !@room.is_washer %>"> Machine à Laver</li>
+                            </ul>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+                
+                
+                
             </div>
             <div class="col-md-4">
                 <!-- Formulaire de réservation -->
@@ -64,49 +112,9 @@
             </div>    
         </div>
         
-        <!-- Description -->
-        <div class="row">
-            <div class="col-md-12">
-                <h2>A propos de ce logement</h2>
-                <p><%= @room.summary %></p>
-            </div>
-        </div>
+        <br>
+        <hr>
         
-        <!-- Equipements -->
-        <div class="row">
-            <div class="col-md-2">
-                <p>Equipements</p>
-            </div>
-            <div class="col-md-10">
-                <div class="row">
-                    <div class="col-md-4">
-                        <ul class="equipments">
-                            <li class="<%= 'text-line-through' if !@room.is_wifi %>">Wifi</li>
-                            <li class="<%= 'text-line-through' if !@room.is_tv %>">Télévision</li>
-                            <li class="<%= 'text-line-through' if !@room.is_closet %>">Penderie/Commode</li>
-                            <li class="<%= 'text-line-through' if !@room.is_shampoo %>">Shampoing</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="equipments">
-                            <li class="<%= 'text-line-through' if !@room.is_kitchen %>">Cuisine</li>
-                            <li class="<%= 'text-line-through' if !@room.is_breakfast %>">Petit déjeuner</li>
-                            <li class="<%= 'text-line-through' if !@room.is_heating %>">Chauffage</li>
-                            <li class="<%= 'text-line-through' if !@room.is_air %>">Climatisation</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <ul class="equipments">
-                            <li class="<%= 'text-line-through' if !@room.is_pool %>"> Piscine</li>
-                            <li class="<%= 'text-line-through' if !@room.is_closet %>"> Placard</li>
-                            <li class="<%= 'text-line-through' if !@room.is_elevator %>"> Ascenceur</li>
-                            <li class="<%= 'text-line-through' if !@room.is_washer %>"> Machine à Laver</li>
-                        </ul>
-                    </div>    
-                </div>
-            </div>
-        </div>
         
         <!-- Carousel -->
         <div class="row">
