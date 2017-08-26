@@ -22,18 +22,16 @@ def self.year_options
   
 def process_payment
  
-     customer = Stripe::Customer.create email: email, card: token #on crée un client avec un email et un token généré par votre numéro de carte bleue
+        customer = Stripe::Customer.create email: email, card: token 
  
-     Stripe::Charge.create customer: customer.id,#à partir de ce client, si le paiement est valide on crée le paiement
- 
-                                                               amount: Reservation.last.total*100,
- 
-                                                               description: 'Réservation Aiirbnb',
- 
-                                                               currency: 'eur'
- 
- end
+     Stripe::Charge.create customer: customer.id,
+                                     amount: Reservation.last.total*100,
+    
+       description: 'Réservation Loveurtrip',
+    
+       currency: 'eur'
  
  end
  
+ end
  

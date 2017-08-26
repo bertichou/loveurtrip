@@ -29,7 +29,7 @@ if(Stripe){
  };
  
   
-$(".cc_form").on('submit', submitHandler); #2 cc form, on va récupérer les infos bancaires du formulaire précédemment créé avec submitHandler !
+$(".cc_form").on('submit', submitHandler);
  
       stripeResponseHandler = function (status, response) {
  
@@ -37,7 +37,7 @@ $(".cc_form").on('submit', submitHandler); #2 cc form, on va récupérer les inf
  
        $form = $('.cc_form');
  
-       if (response.error && response.error.type == 'card_error' ) { #si erreur, mauvais numéro de CB on affiche un message
+       if (response.error && response.error.type == 'card_error' ) { 
  
               $('#stripe').show();
  

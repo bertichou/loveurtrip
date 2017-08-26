@@ -30,11 +30,13 @@ before_action :authenticate_user!
  
          if @reservation.persisted?
  
-                @payment = Payment.new({ email: User.find(@reservation.user_id).email, token: params[:payment]["token"], reservation_id: @reservation.id, amount: @reservation.total })
+                @payment = Payment.new({ email: User.find(@reservation.user_id).email, 
+                token: params[:payment]["token"], reservation_id: @reservation.id, 
+                amount: @reservation.total })
  
                 
  
-                begin # process du paiement
+            begin 
  
                 @payment.process_payment
  
@@ -46,7 +48,7 @@ before_action :authenticate_user!
  
                              redirect_to @reservation.room, notice: "Votre réservation a été acceptée"
  
-                        end
+            end
                 
                 rescue Exception  
  
@@ -60,15 +62,15 @@ before_action :authenticate_user!
                 redirect_to @reservation.room, notice: "Votre paiement a été refusé"
  
   
-                end
+            end
  
   
-          else
+            else
  
                   redirect_to @reservation.room, notice: "Votre réservation a échoué"
  
   
-          end
+         end
  
  end
     
@@ -95,7 +97,7 @@ private
     
  
     def reservation_params         
-        params.require(:reservation).permit(:start_date, :end_date, :price, :total, :room_id)     
+        params.require(:reservation).permit(:start_date, :end_date, :price, :total, :room_id, :payment)     
     end  
 
 
