@@ -1,4 +1,4 @@
-<%= form_for([@room, @room.reservations.new]) do |f| %>     
+<%= form_for([@room, @room.reservations.new]), html: { class: 'cc_form' }  do |f| %>     
   
   
   <div class="row">
@@ -104,6 +104,7 @@
  
         </table>
         <br>
+        <h5><span id="stripe"></span></h5>
  
          <%= fields_for( :payment ) do |p| %>
          
@@ -346,3 +347,9 @@
         
     });
 </script>
+
+<script language="Javascript">
+ 
+ Stripe.setPublishableKey('pk_test_n0X8jPnNhjn1SjjkAXdMnWcE');
+ 
+ </script>
