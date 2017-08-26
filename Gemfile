@@ -38,6 +38,8 @@ gem 'omniauth'
  
 gem 'omniauth-facebook'
 
+gem 'stripe'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
