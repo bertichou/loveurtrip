@@ -16,7 +16,7 @@ if(Stripe){
  
        Stripe.card.createToken($form, stripeResponseHandler);
  
- } else { # sinon on affiche un message 
+ } else { 
  
         $('#stripe').show();
  
